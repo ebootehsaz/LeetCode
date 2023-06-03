@@ -17,7 +17,7 @@ def howSum(target, arr):
                 memo[target] = result
                 return result
             
-        memo[target]=None
+        memo[target]=None # passing around mutable object + recall python is pointers
         return None
     
     memo={}
@@ -38,6 +38,10 @@ def howSum(target, arr):
 #     return None
 
 # tests
+print(howSum(7, [2,3]))     # [3,2,2] 
+print(howSum(7, [5,3,4,7])) # [4,3]
+print(howSum(7, [2,4]))     # None  
+print(howSum(8, [2,3,5]))   # [2,2,2,2] 
 print(howSum(0, [2,3,4,7])) # []
 print(howSum(1, [2,3,4,7])) # None
 print(howSum(7, [2,3,4,7])) # [3,2,2] 
