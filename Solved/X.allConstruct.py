@@ -54,8 +54,9 @@ print(allConstruct("purple",["purp", "p", "ur", "le", "purpl"]))                
 print(allConstruct("abcdef",["ab", "abc", "cd", "def", "abcd"]))                                            # 1
 print(allConstruct("skateboard",["bo", "rd", "ate", "t", "ska", "sk", "boar"]))                             # 0
 print(allConstruct("enterapotentpot",["a", "p", "ent", "enter", "ot", "o", "t"]))                           # 4
-# print(allConstruct("feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",["e", "ee", "eee", "eeee", "eeeee", "eeeeee"]))# 0
-print(allConstruct("eeeeeeeeeeef",["ef", "ee", "eee", "eeee", "eeeee", "eeeee"]))# 2621810068
+print(allConstruct("eeeeeeeeeeeeeeefeeeeeeeeeeeeeeeeeeeeeee",["e", "ee", "eee", "eeee", "eeeee", "eeeeee"]))# 0
+print(allConstruct("eeeeeeeeeeef",["ef", "ee", "eee", "eeee", "eeeee", "eeeee"])) # unknown
+print(len(allConstruct("eeeeeeeeeeeeeeeeeeeeeeeef",["e", "ee", "eee", "eeee", "eeeeef", "eeeee"]))) # 203513
 
 
 """
