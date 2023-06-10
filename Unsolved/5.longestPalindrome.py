@@ -1,41 +1,40 @@
 class Solution(object):
-    def longestPalindromeHelper(self, s, arr):
+    def longestPalindrome(self, s):
         """
         :type s: str
         :rtype: str
         """
-        maxLen = 0
+        if not s:
+            return ""
+
         n = len(s)
         start = 0
+        maxLen = 1
 
         for i in range(n):
-            # odd
-            l, r = i,i 
-            while l >=0 and r < n and s[l] == s[r]:
-                currLen = r - l + 1
-                if currLen > maxLen:
-                    maxLen = currLen
-                    start = l
-                l -=1
+            # Odd
+            l, r = i, i
+            while l > 0 and r < n - 1 and s[l - 1] == s[r + 1]:
+                l -= 1
                 r += 1
 
-            # even
-            l, r = i,i+1 
-            while l >=0 and r < n and s[l] == s[r]:
-                currLen = r - l + 1
-                if currLen > maxLen:
-                    maxLen = currLen
-                    start = l
-                l -=1
+            if r - l + 1 > maxLen:
+                start = l
+                maxLen = r - l + 1
+
+            # Even
+            l, r = i, i + 1
+            while l >= 0 and r < n and s[l] == s[r]:
+                l -= 1
                 r += 1
 
-        return (start, maxLen)
+            if r - l - 1 > maxLen:
+                start = l + 1
+                maxLen = r - l - 1
 
-    def longestPalindrome(self, s):
-        n = len(s)
-        l = [[0 for x in range(n)] for y in range(n)]
-        (start, maxLen) = self.longestPalindromeHelper(s, l) 
-        return s[start:start+maxLen]
+        return s[start:start + maxLen]
+
+
 
 
 
