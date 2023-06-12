@@ -32,3 +32,23 @@ class Solution(object):
 
         return head
 
+
+
+"""
+# very good solution
+        dummyHead = ListNode(None, head)
+        slow, fast = dummyHead, head
+
+        while fast and n > 0:
+            fast = fast.next
+            n -= 1
+        
+        while fast:
+            slow = slow.next
+            fast = fast.next
+        
+        slow.next = slow.next.next
+
+        return dummyHead.next
+        """
+
