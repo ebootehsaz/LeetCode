@@ -30,13 +30,18 @@ def mergeKLists(lists):
 
 
     while len(heap) != 0:
-        (myMin, _, nodePtr) = heapq.heappop(heap)
-        curr.next = nodePtr
-        curr = curr.next
-
-        nodePtr = nodePtr.next
-        if nodePtr:
-            heapq.heappush(heap, (nodePtr.val, id(nodePtr), nodePtr))
+        if heap[0][2].next: 
+            # heapreplace: This one step operation is more efficient than a heappop() followed by heappush()
+            (myMin, _, nodePtr) = heapq.heapreplace(heap, (heap[0][2].next.val, id(heap[0][2].next), heap[0][2].next))
+            curr.next = nodePtr
+            curr = curr.next
+        else:
+            (myMin, _, nodePtr) = heapq.heappop(heap)
+            curr.next = nodePtr
+            curr = curr.next
+            nodePtr = nodePtr.next
+            if nodePtr:
+                heapq.heappush(heap, (nodePtr.val, id(nodePtr), nodePtr))
 
 
     return head.next
