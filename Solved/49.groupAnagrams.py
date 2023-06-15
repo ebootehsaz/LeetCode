@@ -1,20 +1,17 @@
+from collections import defaultdict
+
 def groupAnagrams(strs):
     """
     :type strs: List[str]
     :rtype: List[List[str]]
     """
-    setOfAnograms = {}
+    setOfAnograms = defaultdict(list)
 
     for str in strs:
-        key = tuple(sorted(str))
-        if key in setOfAnograms:
-            setOfAnograms[key] = setOfAnograms[key] + [str]
-        else:
-            setOfAnograms[key] = [str]
+        key = ''.join(sorted(str))
+        setOfAnograms[key].append(str)
 
     return list(setOfAnograms.values())
-
-
 
 
 tests = [
