@@ -13,8 +13,6 @@ def tests(function, extraInfo=False):
     print()
 
 
-
-
-
 if __name__ == "__main__":
-    tests()
+    solution = Solution()
+    tests(solution.__funcName__)
