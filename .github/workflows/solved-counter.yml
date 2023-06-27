@@ -44,8 +44,8 @@ jobs:
           sed -i "s/INSERT_CPP_COUNT/${{ steps.count_cpp.outputs.cpp_count }}/g" README.md
           sed -i "s/INSERT_JS_COUNT/${{ steps.count_js.outputs.js_count }}/g" README.md
           echo -e "\n---\n\nThis text was added by the GitHub Actions workflow." >> README.md
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
           git commit -am "Automated report"
           git push
         working-directory: ./  
