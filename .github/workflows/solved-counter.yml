@@ -1,0 +1,24 @@
+name: Solved Problems Counter
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  count-solved-problems:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Count Solved Problems
+        id: count
+        run: |
+          solved_count=$(find ./solved -type f | wc -l)
+          echo "::set-output name=count::$solved_count"
+
+      - name: Update README
+        run: |
+          sed -i 's/\[INSERT_TOTAL_NUMBER\]/${{ steps.count.outputs.count }}/g' README.md
