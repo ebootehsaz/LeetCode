@@ -41,8 +41,9 @@ jobs:
 
       - name: Update README
         run: |
-          sed -i "s/INSERT_TOTAL_NUMBER/${{ steps.count_total.outputs.total_count }}/g" ./README.md
-          sed -i.bak "s/INSERT_PYTHON_COUNT/${{ steps.count_python.outputs.python_count }}/g" ./README.md
-          sed -i "s/INSERT_CPP_COUNT/${{ steps.count_cpp.outputs.cpp_count }}/g" ./README.md
-          sed -i "s/INSERT_JS_COUNT/${{ steps.count_js.outputs.js_count }}/g" ./README.md
+          sed -i "s/INSERT_TOTAL_NUMBER/${{ steps.count_total.outputs.total_count }}/g" README.md
+          sed -i.bak "s/INSERT_PYTHON_COUNT/${{ steps.count_python.outputs.python_count }}/g" README.md
+          sed -i "s/INSERT_CPP_COUNT/${{ steps.count_cpp.outputs.cpp_count }}/g" README.md
+          sed -i "s/INSERT_JS_COUNT/${{ steps.count_js.outputs.js_count }}/g" README.md
+           echo -e "\n---\n\nThis text was added by the GitHub Actions workflow." >> README.md
         working-directory: ./
